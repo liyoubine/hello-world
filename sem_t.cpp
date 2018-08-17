@@ -38,7 +38,6 @@ typedef		sem_t					sema;
 #define lockConnect(lock) wait_sema(lock)
 #define unlockConnect(lock) inc_sema( lock)
 
-//	init_sema_n(dbc->lock,1);
 //#pragma pack(1)
 typedef struct Conn{
 int cancel;
@@ -65,10 +64,9 @@ static  void Multi_results_recvThd(void *para)
 	Conn	*stmt;
 	stmt = (Conn*)para;
  
-	 //
-	 	printf("batch recv 2621\n");
+	
 	 
-	  __sleep(30000)	;
+	        __sleep(30000);
 	  
 	   	printf("batch sleep 3\n");
 	   	 
@@ -80,8 +78,8 @@ static  void Multi_results_recvThd(void *para)
 	   	// unlock
 	   	
 	   	unlockConnect(stmt->lock);
-	   	 	printf("batch  here unlock  ok 3\n");
-			return  ;	
+	 	printf("batch  here unlock  ok 3\n");
+	        return  ;	
 }
 
 
